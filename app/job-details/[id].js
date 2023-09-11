@@ -61,7 +61,17 @@ const JobDetails = () => {
             refreshControl={
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }>
-
+              {isLoading ? (
+                <ActivityIndicator size="large" color={COLORS.primary}/>
+              ) : error ? (
+                <Text>Something went wrong</Text>
+              ) : data.length === 0 ? (
+                <Text>No data</Text>
+              ) : (
+                <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+                  
+                </View>
+              )}
           </ScrollView>
         </>
       </Stack.Screen>
