@@ -1,4 +1,4 @@
-import { Stack, useRouter, useSearchParams } from "expo-router";
+import { Stack, useRouter, useGlobalSearchParams } from "expo-router";
 import { useCallback, useState } from "react";
 import {
   View,
@@ -20,8 +20,10 @@ import {
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hook/useFetch";
 
+const tabs = ["About", "Qualifications", "Responsibilites"];
+
 const JobDetails = () => {
-  const params = useSearchParams();
+  const params = useGlobalSearchParams();
   const router = useRouter();
 
   const { data, isLoading, error, refetch } = useFetch('job-details', {
@@ -29,6 +31,7 @@ const JobDetails = () => {
   })
 
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const onRefresh = () => {};
 
