@@ -1,12 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { View, Text } from 'react-native';
 
-import styles from './specifics.style'
+import styles from './specifics.style';
 
-const Specifics = () => {
+const Specifics = ({ title, points }) => {
   return (
-    <View>
-      <Text>Specifics</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}:</Text>
     </View>
   )
 }
